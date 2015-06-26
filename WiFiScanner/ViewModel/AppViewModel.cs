@@ -75,6 +75,17 @@ namespace WiFiScanner.ViewModel
 
     #region Properties    
 
+    public bool ShowStartHint
+    {
+        get { return (bool)GetValue(ShowStartHintProperty); }
+        set { SetValue(ShowStartHintProperty, value); }
+    }
+
+    // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+    public static readonly DependencyProperty ShowStartHintProperty =
+        DependencyProperty.Register("ShowStartHint", typeof(bool), typeof(AppViewModel), new PropertyMetadata(true));
+
+
     /// <summary>
     /// Graph Canvas width (set in MainWindow.xaml.cs)
     /// </summary>
@@ -179,7 +190,8 @@ namespace WiFiScanner.ViewModel
     /// Execute Netsh command, parse output, set NetworkValues property
     /// </summary>
     public void MyAction()
-    {      
+    {
+      ShowStartHint = false;
       NetworkValues = ParseNetshOutput(StartScanningNetsh());
     }
     #endregion
