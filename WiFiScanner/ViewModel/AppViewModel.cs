@@ -69,11 +69,23 @@ namespace WiFiScanner.ViewModel
     /// <summary>
     /// Array of colors for networks
     /// </summary>
-    public string[] _colors = { "#FF3EF359", "#FFFF80AA", "#FFC6F33E", "#FF8A80FF", "#FFFFBF80", "#FF80FFF6", "#FF808080", "#FFDC73FF", "#FFCC546E", "#FFA0CC54", "#FFCC54CC", "#FFFF0000" };
+    public string[] _colors = { "#FF80FF93", "#FFFFB0CA", "#FFE7FF9E", "#FF8A80FF", "#FFFFBF80", "#FF80FFF6", "#FF808080", "#FFDC73FF", "#FFCC546E", "#FFA0CC54", "#FFCC54CC", "#FFFF0000" };
 
     #endregion
 
     #region Properties    
+
+    public bool IsScanning
+    {
+        get { return (bool)GetValue(IsScanningProperty); }
+        set { SetValue(IsScanningProperty, value); }
+    }
+
+    // Using a DependencyProperty as the backing store for IsScanning.  This enables animation, styling, binding, etc...
+    public static readonly DependencyProperty IsScanningProperty =
+        DependencyProperty.Register("IsScanning", typeof(bool), typeof(AppViewModel), new PropertyMetadata(false));
+
+    
 
     public bool ShowStartHint
     {
@@ -192,7 +204,9 @@ namespace WiFiScanner.ViewModel
     public void MyAction()
     {
       ShowStartHint = false;
+      IsScanning = true;
       NetworkValues = ParseNetshOutput(StartScanningNetsh());
+      //IsScanning = false;
     }
     #endregion
 
