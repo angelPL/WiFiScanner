@@ -224,7 +224,15 @@
                             <RowDefinition Height="2*"/>
                         </Grid.RowDefinitions>
                         <DataGrid Grid.Row="0" VerticalAlignment="Top" ItemsSource="{Binding NetworkValues}" AutoGenerateColumns="False" CanUserAddRows="False"
-                                  GridLinesVisibility="None" AlternationCount="2">                    
+                                  GridLinesVisibility="None" AlternationCount="2" RowHeaderWidth="0" BorderThickness="0">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="#777"/>
+                                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    <Setter Property="BorderThickness" Value="0" />
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
                             <DataGrid.Resources>                                                          
                             <!-- No selection -->
                                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#00000000"/>
@@ -327,61 +335,35 @@
                             <DataGrid.Columns>                                
                                 <DataGridTemplateColumn Header="Show" CellTemplate="{StaticResource ShowTemplate}" Width="40" />
                                 <DataGridTextColumn Binding="{Binding Path=NetworkNameChannelSignalColorCanvasWidthAndHeight.Item1}" Header="Network Name" Width="2*">
-                                    <DataGridTextColumn.HeaderStyle>
-                                        <Style TargetType="DataGridColumnHeader">
-                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="HorizontalAlignment" Value="Center" />
                                         </Style>
-                                    </DataGridTextColumn.HeaderStyle>
+                                    </DataGridTextColumn.ElementStyle>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn Binding="{Binding Path=NetworkBSSID}" Header="BSSID" Width="*">
-                                    <DataGridTextColumn.HeaderStyle>
-                                        <Style TargetType="DataGridColumnHeader">
-                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                                        </Style>
-                                    </DataGridTextColumn.HeaderStyle>
+                                <DataGridTextColumn Binding="{Binding Path=NetworkBSSID}" Header="BSSID" Width="*">                                    
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="{x:Type TextBlock}">
                                             <Setter Property="HorizontalAlignment" Value="Center" />
                                         </Style>
                                     </DataGridTextColumn.ElementStyle>                                    
                                 </DataGridTextColumn>
-                                <DataGridTextColumn Binding="{Binding Path=Security}" Header="Security" Width="*">
-                                    <DataGridTextColumn.HeaderStyle>
-                                        <Style TargetType="DataGridColumnHeader">
-                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                                        </Style>
-                                    </DataGridTextColumn.HeaderStyle>
+                                <DataGridTextColumn Binding="{Binding Path=Security}" Header="Security" Width="*">                                   
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="{x:Type TextBlock}">
                                             <Setter Property="HorizontalAlignment" Value="Center" />
                                         </Style>
                                     </DataGridTextColumn.ElementStyle>
                                 </DataGridTextColumn>
-                                <DataGridTemplateColumn Header="Signal Strength" CellTemplate="{StaticResource SignalTemplate}" Width="144">
-                                    <DataGridTemplateColumn.HeaderStyle>                                        
-                                        <Style TargetType="DataGridColumnHeader">
-                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                                        </Style>                                        
-                                    </DataGridTemplateColumn.HeaderStyle>
-                                </DataGridTemplateColumn>
-                                <DataGridTextColumn Binding="{Binding Path=NetworkNameChannelSignalColorCanvasWidthAndHeight.Item2}" Header="Channel" Width="*">
-                                    <DataGridTextColumn.HeaderStyle>
-                                        <Style TargetType="DataGridColumnHeader">
-                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                                        </Style>
-                                    </DataGridTextColumn.HeaderStyle>
+                                <DataGridTemplateColumn Header="Signal Strength" CellTemplate="{StaticResource SignalTemplate}" Width="144" />
+                                <DataGridTextColumn Binding="{Binding Path=NetworkNameChannelSignalColorCanvasWidthAndHeight.Item2}" Header="Channel" Width="*">                                    
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="{x:Type TextBlock}">
                                             <Setter Property="HorizontalAlignment" Value="Center" />
                                         </Style>
                                     </DataGridTextColumn.ElementStyle>
                                 </DataGridTextColumn>
-                                <DataGridTextColumn Binding="{Binding Path=Mode}" Header="Mode" Width="*">
-                                    <DataGridTextColumn.HeaderStyle>
-                                        <Style TargetType="DataGridColumnHeader">
-                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                                        </Style>
-                                    </DataGridTextColumn.HeaderStyle>
+                                <DataGridTextColumn Binding="{Binding Path=Mode}" Header="Mode" Width="*">                               
                                     <DataGridTextColumn.ElementStyle>
                                         <Style TargetType="{x:Type TextBlock}">
                                             <Setter Property="HorizontalAlignment" Value="Center" />
