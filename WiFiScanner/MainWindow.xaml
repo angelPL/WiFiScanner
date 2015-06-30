@@ -250,7 +250,7 @@
                                         <TextBlock Text="{Binding NetworkNameChannelSignalColorCanvasWidthAndHeight.Item3,
                                             Converter={StaticResource SignalToPercentConverter}}" Margin="5 0 5 0" />
                                         <Canvas>
-                                            <Rectangle Canvas.Top="2" Width="102" Height="13" Stroke="Blue" />
+                                            <Rectangle Canvas.Top="2" Width="102" Height="13" Stroke="Gray" />
                                             <Rectangle Canvas.Top="3" Canvas.Left="1" Width="{Binding NetworkNameChannelSignalColorCanvasWidthAndHeight.Item3}"
                                                        Height="11" Fill="{Binding NetworkNameChannelSignalColorCanvasWidthAndHeight.Item3,
                                                 Converter={StaticResource SignalToColorConverter}}" />
